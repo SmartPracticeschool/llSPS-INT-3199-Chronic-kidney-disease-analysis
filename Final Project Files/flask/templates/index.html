@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<style>
+.login{
+top: 20%;
+}
+</style>
+</head>
+
+<body>
+ 
+ <div class="login">
+  <h4>Kidney Disease Prediction</h4>
+ <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('y_predict')}}"method="post">
+      <input type="text" name="Bp" placeholder="Bp" required="required" />
+		<input type="text" name="Sg" placeholder="Sg" required="required" />
+        <input type="text" name="Al" placeholder="Al" required="required" />
+        <input type="text" name="Su" placeholder="Su" required="required" />
+        <input type="text" name="Rbc" placeholder="Rbc" required="required" />
+        <input type="text" name="Pc " placeholder="Pc " required="required" />
+        <input type="text" name="Pcc" placeholder="Pcc" required="required" />
+        <input type="text" name="Ba" placeholder="Ba" required="required" />
+        <input type="text" name="Bgr" placeholder="Bgr" required="required" />
+        <input type="text" name="Bu" placeholder="Bu" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+<p>Inputs are restricted to whole nos.1 and 0 can be used for positive and negative values.</p>
+ </div>
+
+
+</body>
+</html>
+
